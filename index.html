@@ -28,7 +28,31 @@
               <div class="header-button"><a class="btn btn-1" href="#" data-toggle="modal" data-target="#callbackModal">Обратный звонок</a></div>
               <div class="header-cart"><a class="header-cart-link" href="#">
                   <div class="header-cart-ico"></div>
-                  <div class="header-cart-text"><span>BTC: 12</span></div></a></div>
+                  <div class="header-cart-text"><span>BTC: 12</span></div></a>
+                <div class="cart-popup">
+                  <div class="cart-popup-content">
+                    <div class="cart-popup-item">
+                      <div class="ico"><img src="images/ico-popup-btc.png"></div>
+                      <div class="name">Bitcoin <span>12</span></div>
+                    </div>
+                    <div class="cart-popup-item">
+                      <div class="ico"><img src="images/ico-popup-eth.png"></div>
+                      <div class="name">Etherium <span>3</span></div>
+                    </div>
+                    <div class="cart-popup-item">
+                      <div class="ico"><img src="images/ico-popup-ltc.png"></div>
+                      <div class="name">Litecoin <span>12</span></div>
+                    </div>
+                    <div class="cart-popup-item">
+                      <div class="ico"><img src="images/ico-popup-btc-cash.png"></div>
+                      <div class="name">Bitcoin Cash <span>3</span></div>
+                    </div>
+                    <div class="cart-popup-button">
+                      <div class="btn btn-1" data-toggle="modal" data-target="#cartModal">Заказать</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -650,26 +674,27 @@
                         <div class="change-calc-row">
                           <div class="change-calc-label">Я отдаю</div>
                           <div class="change-calc-input">
-                            <input type="text" value="10 000" id="change-calc-in-input">
+                            <input class="numeric" type="text" value="10000" id="change-calc-in-input">
                           </div>
                           <div class="change-calc-select">
+                            <!-- Свойство data-rate - стоимость валюты в долларах-->
                             <select id="change-calc-in">
-                              <option value="1">EUR (Евро)</option>
-                              <option value="2">EUR (Доллар)</option>
-                              <option value="3">BTC (Биткоин)</option>
+                              <option value="1" data-rate="1" selected>USD (Доллар)</option>
+                              <option value="2" data-rate="1.23">EUR (Евро)</option>
+                              <option value="3" data-rate="7380">BTC (Bitcoin)</option>
+                              <option value="3" data-rate="380">ETH (Etherium)</option>
                             </select>
                           </div>
                         </div>
                         <div class="change-calc-row">
                           <div class="change-calc-label">Я получаю</div>
                           <div class="change-calc-input">
-                            <input type="text" value="1,04183213" id="change-calc-out-input">
+                            <input class="numeric" type="text" value="" readonly id="change-calc-out-input">
                           </div>
                           <div class="change-calc-select">
                             <select id="change-calc-out">
-                              <option value="1">EUR (Евро)</option>
-                              <option value="2">EUR (Доллар)</option>
-                              <option value="3">BTC (Биткоин)</option>
+                              <option value="1" data-rate="7380" selected>BTC (Bitcoin)</option>
+                              <option value="2" data-rate="380">ETH (Etherium)</option>
                             </select>
                           </div>
                         </div>
@@ -1002,187 +1027,95 @@
       </div>
     </div>
     <footer>
-      <div class="footer-top">
-        <div class="container"></div>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-logo"><img src="images/logo-footer.png"></div>
+          <div class="footer-logo-text">Покупка | Продажа | Обмен криптовалют</div>
+        </div>
+        <div class="footer-bottom">&copy; TreeCoin — биткоины за наличные и онлайн, 2018 </div>
       </div>
-    </footer><div class="modal fade order-modal" id="orderModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-ico modal-ico-order"></div>
-        <div class="h2">Получить кредит</div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="order-form-wrapper">
-          <div class="order-modal-form">
-            <form id="orderForm2">
-              <div class="form-group">
-                <label for="order_name" class="placeholder">Ваше имя</label>
-                <input type="text" name="order_name" id="order_name" required >
-              </div>
-              <div class="form-group">
-                <label for="order_phone" class="placeholder">Телефон</label>
-                <input type="text" name="order_phone" id="order_phone" class="input-phone phone-email-group">
-              </div>
-              <div class="form-group">
-                <label for="order_email" class="placeholder">Ваш e-mail</label>
-                <input type="email" name="order_email" id="order_email" class="input-email phone-email-group">
-              </div>
-              <div class="form-group">
-                <div class="form-checkbox">
-                  <input class="input-agree" type="checkbox" id="order_agree" name="order_agree" required="" aria-required="true">
-                  <label for="order_agree">Я согласен на обработку персональных данных</label>
+    </footer>
+    <div class="modal fade cart-modal" id="cartModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="h2">Корзина</div>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="cart-form">
+              <form>
+                <div class="h3">Покупка криптовалюты</div>
+                <!-- data-rate - курс к доллару-->
+                <div class="cart-items">
+                  <div class="cart-item" data-rate="7380">
+                    <div class="cart-item-ico"><img src="files/ico-btc.png"></div>
+                    <div class="cart-item-name">Bitcoin</div>
+                    <div class="cart-item-count">
+                      <div class="count">
+                        <div class="count-minus"></div>
+                        <div class="count-input">
+                          <input type="text" value="1">
+                        </div>
+                        <div class="count-plus"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cart-item" data-rate="124">
+                    <div class="cart-item-ico"><img src="files/ico-litecoin.png"></div>
+                    <div class="cart-item-name">Litecoin</div>
+                    <div class="cart-item-count">
+                      <div class="count">
+                        <div class="count-minus"></div>
+                        <div class="count-input">
+                          <input type="text" value="1">
+                        </div>
+                        <div class="count-plus"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="form-footer">
-                <button type="submit" class="btn btn-1">Отправить заявку</button>
-              </div>
-            </form>
+                <div class="cart-total-wrapper">
+                  <div class="cart-total-text"><span class="total-ttl">Итог:</span> <span class="total-val" id="cartTotalVal">0</span></div>
+                  <div class="cart-total-select">
+                    <!-- data-price - курс к доллару-->
+                    <select id="cartTotalSelect">
+                      <option value="1" data-rate="57.6" selected>RUB (Рубль)</option>
+                      <option value="2" data-rate="1">USD (Доллар)</option>
+                      <option value="3" data-rate="1.23">EUR (Евро)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="cart-info">
+                  <div class="h3">Ваши данные</div>
+                  <div class="form-group">
+                    <label class="placeholder" for="cart_name">Ваше имя <span class="req">*</span></label>
+                    <input type="text" name="cart_name" id="cart_name" required>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <div class="form-group">
+                        <label class="placeholder" for="cart_phone">+7 (000) 000-00-00</label>
+                        <input class="input-phone phone-email-group" type="text" name="cart_phone" id="cart_phone">
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <div class="form-group">
+                        <label class="placeholder" for="cart_email">E-mail</label>
+                        <input class="phone-email-group" type="email" name="cart_email" id="cart_email">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-footer">
+                  <button class="btn btn-2" type="submit">Оформить заказ</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="modal fade order-modal" id="callbackModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-ico modal-ico-order"></div>
-        <div class="h2">Заказать звонок</div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="order-form-wrapper">
-          <div class="order-modal-form">
-            <form id="orderForm2">
-              <div class="form-group">
-                <label for="callback_name" class="placeholder">Ваше имя</label>
-                <input type="text" name="callback_name" id="callback_name" required >
-              </div>
-              <div class="form-group">
-                <label for="callback_phone" class="placeholder">Телефон</label>
-                <input type="text" name="callback_phone" id="callback_phone" class="input-phone" required>
-              </div>
-              <div class="form-group">
-                <div class="form-checkbox">
-                  <input class="input-agree" type="checkbox" id="callback_agree" name="callback_agree" required aria-required="true">
-                  <label for="callback_agree">Я согласен на обработку персональных данных</label>
-                </div>
-              </div>
-              <div class="form-footer">
-                <button type="submit" class="btn btn-1">Отправить заявку</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal fade order-modal credit-modal" id="creditModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-ico modal-ico-order"></div>
-        <div class="h2">Получить кредит</div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="order-form-wrapper">
-          <div class="order-modal-form">
-            <form id="creditForm2">
-              <div class="form-group">
-                <label for="credit_name" class="placeholder">Ваше имя</label>
-                <input type="text" name="credit_name" id="credit_name" required >
-              </div>
-              <div class="form-group">
-                <label for="credit_phone" class="placeholder">Телефон</label>
-                <input type="text" name="credit_phone" id="credit_phone" class="input-phone phone-email-group">
-              </div>
-              <div class="form-group">
-                <label for="credit_email" class="placeholder">Ваш e-mail</label>
-                <input type="email" name="credit_email" id="credit_email" class="input-email phone-email-group">
-              </div>
-              <div class="form-group">
-                <div class="form-checkbox">
-                  <input class="input-agree" type="checkbox" id="credit_agree" name="credit_agree" required="" aria-required="true">
-                  <label for="credit_agree">Я согласен на обработку персональных данных</label>
-                </div>
-              </div>
-              <div class="form-footer">
-                <button type="submit" class="btn btn-1">Отправить заявку</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade order-modal" id="askModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-ico modal-ico-order"></div>
-        <div class="h2">Задать вопрос</div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="ask-form-wrapper">
-          <div class="ask-modal-form">
-            <form id="askForm2">
-              <div class="form-group">
-                <label for="ask_name" class="placeholder">Ваше имя</label>
-                <input type="text" name="ask_name" id="ask_name" required >
-              </div>
-              <div class="form-group">
-                <label for="ask_phone" class="placeholder">Телефон</label>
-                <input type="text" name="ask_phone" id="ask_phone" class="input-phone phone-email-group">
-              </div>
-              <div class="form-group">
-                <label for="ask_email" class="placeholder">Ваш e-mail</label>
-                <input type="email" name="ask_email" id="ask_email" class="input-email phone-email-group">
-              </div>
-              <div class="form-group">
-                <label for="ask_message" class="placeholder">Ваш вопрос</label>
-                <textarea name="ask_message" id="ask_message" rows="3"></textarea>
-              </div>
-              <div class="form-group">
-                <div class="form-checkbox">
-                  <input class="input-agree" type="checkbox" id="ask_agree" name="ask_agree" required="" aria-required="true">
-                  <label for="ask_agree">Я согласен на обработку персональных данных</label>
-                </div>
-              </div>
-              <div class="form-footer">
-                <button type="submit" class="btn btn-1">Отправить заявку</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade success-modal" id="successModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="h2">Ваша заявка успешно отправлена!</div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Финансовый специалист свяжется с вами в ближайшее время.</p>
-      </div>
-    </div>
-  </div>
-</div>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/nouislider.min.js"></script>
