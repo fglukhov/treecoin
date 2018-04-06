@@ -19,16 +19,16 @@
       <div class="container">
         <div class="header-content">
           <div class="row">
-            <div class="col-xs-12 col-sm-5">
+            <div class="col-xs-12 col-sm-4 col-md-5">
               <div class="header-logo"><img src="images/logo.png" alt="TreeCoin"></div>
               <div class="header-logo-text">Покупка  / Продажа  / Обмен<br>криптовалют</div>
             </div>
-            <div class="col-xs-12 col-sm-7">
+            <div class="col-xs-12 col-sm-8 col-md-7">
               <div class="header-phone"><a href="tel:+74991111501">+7 (499) 111-15-01</a></div>
               <div class="header-button"><a class="btn btn-1" href="#" data-toggle="modal" data-target="#callbackModal">Обратный звонок</a></div>
               <div class="header-cart"><a class="header-cart-link" href="#">
                   <div class="header-cart-ico"></div>
-                  <div class="header-cart-text"><span>BTC: 12</span></div></a>
+                  <div class="header-cart-text"><span>30</span></div></a>
                 <div class="cart-popup">
                   <div class="cart-popup-content">
                     <div class="cart-popup-item">
@@ -99,13 +99,41 @@
         <div class="section-content">
           <div class="container">
             <div class="row">
-              <div class="col-xs-12 col-sm-9">
-                <div class="rate-plot-wrapper"><img src="files/rate-plot-dummy.jpg"></div>
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+                <div class="rate-plot-wrapper"><!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tv-medium-widget"></div>
+  <div class="tradingview-widget-copyright"><span class="blue-text">Котировки</span> <span class="blue-text"><a href="https://ru.tradingview.com/symbols/COINBASE-BTCUSD/" rel="noopener" target="_blank"><span class="blue-text">BTC</span></a></span> от TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+    new TradingView.MediumWidget(
+      {
+        "container_id": "tv-medium-widget",
+        "symbols": [
+          [
+            "BTC",
+            "COINBASE:BTCUSD|1y"
+          ]
+        ],
+        "greyText": "Котировки предоставлены",
+        "gridLineColor": "#e9e9ea",
+        "fontColor": "#83888D",
+        "underLineColor": "#dbeffb",
+        "trendLineColor": "#4bafe9",
+        "width": "100%",
+        "height": "100%",
+        "locale": "ru"
+      }
+    );
+  </script>
+</div>
+<!-- TradingView Widget END -->
+                </div>
                 <div class="rate-footnote">
                   <p><span>Рыночная капитализация Bitcoin $200 000 000 000</span><span>Объем биржевых торгов за 24ч $5 555 555 000</span></p>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-3">
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
                 <div class="rate-info">
                   <div class="rate-info-header clearfix">
                     <div class="h2">Курс 1 BTC</div>
@@ -700,7 +728,7 @@
                         </div>
                       </div>
                       <div class="change-calc-footer">
-                        <div class="btn btn-change">Обменять</div>
+                        <div class="btn btn-change" data-toggle="modal" data-target="#changeModal">Обменять</div>
                         <div class="change-calc-rate">1 EUR = 0,00010418 BTC</div>
                       </div>
                     </div>
@@ -756,7 +784,22 @@
         <div class="section-content">
           <div class="container">
             <div class="h2"><span>Аналитика</span></div>
-            <div class="an-wrapper"><img src="images/an-dummy.jpg"></div>
+            <div class="an-wrapper"><!-- TradingView Widget BEGIN -->
+<div id="market_widget"></div>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script>
+  new TradingView.widget({
+    "container_id": "market_widget",
+    "width": "1000",
+    "height": "500",
+    "defaultColumn": "overview",
+    "screener_type": "crypto_mkt",
+    "displayCurrency": "USD",
+    "locale": "ru"
+  });
+</script>
+<!-- TradingView Widget END -->
+            </div>
           </div>
         </div>
       </div>
@@ -839,7 +882,7 @@
         <div class="section-content">
           <div class="container">
             <div class="row">
-              <div class="col-xs-12 col-sm-8">
+              <div class="col-xs-12 col-md-8">
                 <div class="contacts-info">
                   <div class="row">
                     <div class="col-xs-12 col-sm-6">
@@ -933,8 +976,10 @@
                 </div>
                 <div class="col-xs-6 col-sm-4">
                   <div class="region-tmb">
-                    <div class="h3"><span>Нижний Новгород</span></div>
-                    <div class="region-tmb-phones"><a href="tel:8 927 411-28-42">8 927 411-28-42</a></div>
+                    <div class="cont">
+                      <div class="h3"><span>Нижний Новгород</span></div>
+                      <div class="region-tmb-phones"><a href="tel:8 927 411-28-42">8 927 411-28-42</a></div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-4">
@@ -1032,7 +1077,7 @@
           <div class="footer-logo"><img src="images/logo-footer.png"></div>
           <div class="footer-logo-text">Покупка | Продажа | Обмен криптовалют</div>
         </div>
-        <div class="footer-bottom">&copy; TreeCoin — биткоины за наличные и онлайн, 2018 </div>
+        <div class="footer-bottom">&copy; TreeCoin — биткоины за наличные и онлайн, 2018</div>
       </div>
     </footer>
     <div class="modal fade cart-modal" id="cartModal" tabindex="-1">
@@ -1109,6 +1154,79 @@
                 </div>
                 <div class="form-footer">
                   <button class="btn btn-2" type="submit">Оформить заказ</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade cart-modal" id="callbackModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="h2">Заказать звонок</div>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="callback-form">
+              <form>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label class="placeholder" for="callback_name">Ваше имя <span class="req">*</span></label>
+                      <input type="text" name="callback_name" id="callback_name" required>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label class="placeholder" for="callback_phone">+7 (000) 000-00-00</label>
+                      <input class="input-phone" type="text" name="callback_phone" id="callback_phone" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-footer">
+                  <button class="btn btn-2" type="submit">Оформить заказ</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade cart-modal" id="changeModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="h2">Обменять криптовалюту</div>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="change-form">
+              <form>
+                <input type="hidden" name="change_current_in">
+                <input type="hidden" name="change_current_out">
+                <input type="hidden" name="change_val">
+                <div class="form-group">
+                  <label class="placeholder" for="change_name">Ваше имя <span class="req">*</span></label>
+                  <input type="text" name="change_name" id="change_name" required>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label class="placeholder" for="change_phone">+7 (000) 000-00-00</label>
+                      <input class="input-phone phone-email-group" type="text" name="change_phone" id="change_phone">
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+                    <div class="form-group">
+                      <label class="placeholder" for="change_email">E-mail</label>
+                      <input class="phone-email-group" type="email" name="change_email" id="change_email">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-footer">
+                  <button class="btn btn-2" type="submit">Оформить заказ              </button>
                 </div>
               </form>
             </div>

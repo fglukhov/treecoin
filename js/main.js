@@ -28,6 +28,7 @@ $(document).ready(function () {
   $(".header-cart-link").on("click",function () {
     $(".cart-popup").fadeIn(250,function () {
       $(".cart-popup").addClass("open");
+      $(".header-cart-link").addClass("active");
     });
   });
 
@@ -35,6 +36,7 @@ $(document).ready(function () {
     if ($(".cart-popup").hasClass("open") && !$(e.target).hasClass("header-cart-link") && !$(e.target).parents().hasClass("header-cart-link")) {
       $(".cart-popup").fadeOut(250,function () {
         $(".cart-popup").removeClass("open");
+      $(".header-cart-link").removeClass("active");
       });
     }
   });
@@ -90,7 +92,23 @@ $(document).ready(function () {
   $(".catalog-slider").slick({
     slidesToShow: 3,
     slidesToScroll: 3,
-    dots: true
+    dots: true,
+    responsive: [
+      {
+        breakpoint: 1020,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   });
 
   // Mobile menu
